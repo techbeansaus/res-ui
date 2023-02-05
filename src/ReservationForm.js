@@ -76,23 +76,7 @@ const ReservationForm = (props) => {
             value={props.reservation.timeSlot || ""}/>
           </Form.Group>
         </Col>
-      </Row>
-      
-
-const Example = ({ items }) => {
-  return (
-    <DropdownButton id="dropdown-basic-button" title="Dropdown Button">
-      {items.map((item, index) => (
-        <Dropdown.Item key={index} href="#/action">
-          {item}
-        </Dropdown.Item>
-      ))}
-    </DropdownButton>
-  );
-};
-
-
-      <Row>
+      </Row><Row>
         <Col xs={12} md={6}>
           <Form.Group controlId="formPartySize">
             <Form.Control 
