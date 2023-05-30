@@ -18,8 +18,16 @@ const ReservationForm = (props) => {
             name="firstName" 
             placeholder="First name" 
             onChange={props.handleChange}
-            value={props.reservation.firstName || ""}/>
+            value={props.reservation.firstName || ""}
+            isInvalid={!!props.formErrors.firstName} />
+            <Form.Control.Feedback type="invalid">
+            {props.formErrors.firstName}
+            </Form.Control.Feedback>
           </Form.Group>
+        </Col>
+        <Col xs={12} md={6}>
+          
+        {/* {props.formErrors.firstName && <span className="error-message">{props.formErrors.firstName}</span>} */}
         </Col>
         <Col xs={12} md={6}>
           <Form.Group controlId="formLastName">
@@ -30,6 +38,9 @@ const ReservationForm = (props) => {
             onChange={props.handleChange}
             value={props.reservation.lastName || ""}/>
           </Form.Group>
+        </Col>
+        <Col xs={12} md={6}>
+        {props.formErrors.lastName && <span className="error-message">{props.formErrors.lastName}</span>}
         </Col>
         <Col xs={12} md={6}>
           <Form.Group controlId="formPhone">
@@ -43,6 +54,9 @@ const ReservationForm = (props) => {
           </Form.Group>
         </Col>
         <Col xs={12} md={6}>
+        {props.formErrors.phoneNumber && <span className="error-message">{props.formErrors.phoneNumber}</span>}
+        </Col>
+        <Col xs={12} md={6}>
           <Form.Group controlId="formEmail">
             
             <Form.Control 
@@ -52,6 +66,9 @@ const ReservationForm = (props) => {
             onChange={props.handleChange}
             value={props.reservation.emailAddress || ""}/>
           </Form.Group>
+        </Col>
+        <Col xs={12} md={6}>
+        {props.formErrors.emailAddress && <span className="error-message">{props.formErrors.emailAddress}</span>}
         </Col>
       </Row>
       <Row>
@@ -66,6 +83,9 @@ const ReservationForm = (props) => {
           </Form.Group>
         </Col>
         <Col xs={12} md={6}>
+        {props.formErrors.date && <span className="error-message">{props.formErrors.date}</span>}
+        </Col>
+        <Col xs={12} md={6}>
           <Form.Group controlId="formTime">
             
             <Form.Control 
@@ -75,6 +95,9 @@ const ReservationForm = (props) => {
             onChange={props.handleChange}
             value={props.reservation.timeSlot || ""}/>
           </Form.Group>
+        </Col>
+        <Col xs={12} md={6}>
+        {props.formErrors.timeSlot && <span className="error-message">{props.formErrors.timeSlot}</span>}
         </Col>
       </Row><Row>
         <Col xs={12} md={6}>
@@ -88,6 +111,9 @@ const ReservationForm = (props) => {
           </Form.Group>
         </Col>
         <Col xs={12} md={6}>
+        {props.formErrors.numberOfGuests && <span className="error-message">{props.formErrors.numberOfGuests}</span>}
+        </Col>
+        <Col xs={12} md={6}>
           <Form.Group controlId="formSpecialRequests">
             <Form.Control 
             as="textarea" rows="3" 
@@ -96,6 +122,9 @@ const ReservationForm = (props) => {
             onChange={props.handleChange}
             value={props.reservation.specialRequest || ""} />
           </Form.Group>
+        </Col>
+        <Col xs={12} md={6}>
+        {props.formErrors.specialRequest && <span className="error-message">{props.formErrors.specialRequest}</span>}
         </Col>
       </Row>
       <Button variant="primary" type="submit">
