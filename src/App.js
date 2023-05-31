@@ -59,8 +59,8 @@ function App() {
       errors.phoneNumber = "Invalid phone number";
     }
   
-    if (!reservation.date) {
-      errors.date = "Date is required";
+    if (!reservation.bookingDate) {
+      errors.bookingDate = "Date is required";
     }
   
     if (!reservation.timeSlot) {

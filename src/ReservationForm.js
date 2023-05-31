@@ -76,10 +76,10 @@ const ReservationForm = (props) => {
           <Form.Group controlId="formDate">
             <Form.Control 
             type="date" 
-            name="date"
+            name="bookingDate"
             placeholder="Choose date" 
              onChange={props.handleChange}
-             value={props.reservation.date || ""}/>
+             value={props.reservation.bookingDate || ""}/>
           </Form.Group>
         </Col>
         <Col xs={12} md={6}>
