@@ -1,7 +1,7 @@
-import logo from './logoTF.png';
-import './App.css';
 import React, { useEffect, useState } from 'react';
+import './App.css';
 import ReservationForm from './ReservationForm';
+import logo from './logoTF.png';
 
 function App() {
   const [reservation, setReservation] = useState({
@@ -98,7 +98,8 @@ const handleSubmit = async (event) => {
   if (Object.keys(errors).length === 0) {
     // submit form data to server
     try {
-      const res = await fetch('https://ugu4m3y7f9.execute-api.ap-southeast-2.amazonaws.com/dev/reservations',req);
+      console.log(req);
+      const res = await fetch('http://localhost:6002/api/reservations',req);
     const jsonRes = await res.json;
     setResponse(JSON.stringify(jsonRes));
       await setReservation(reservation);
