@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import { validateForm } from './FormValidator';
 import ReservationForm from './ReservationForm';
 import logo from './logoTF.png';
 
@@ -34,47 +35,6 @@ function App() {
     console.log(formErrors);
   },[formErrors]);
 
-
-  const validateForm = () => {
-  
-    let errors = {};
-  
-    if (!reservation.firstName) {
-      errors.firstName = "First Name is required";
-    }
-
-    if (!reservation.lastName) {
-      errors.lastName = "Last Name is required";
-    }
-
-    if (!reservation.emailAddress) {
-      errors.emailAddress = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(reservation.emailAddress)) {
-      errors.emailAddress = "Invalid email address";
-    }
-  
-    if (!reservation.phoneNumber) {
-      errors.phoneNumber = "Phone is required";
-    } else if (!/^[0-9]+$/.test(reservation.phoneNumber)) {
-      errors.phoneNumber = "Invalid phone number";
-    }
-  
-    if (!reservation.bookingDate) {
-      errors.bookingDate = "Date is required";
-    }
-  
-    if (!reservation.timeSlot) {
-      errors.timeSlot = "Time is required";
-    }
-  
-    if (!reservation.numberOfGuests) {
-      errors.numberOfGuests = "Party size is required";
-    } else if (!/^[0-9]+$/.test(reservation.numberOfGuests)) {
-      errors.numberOfGuests = "Invalid party size";
-    }
-    return errors;
-  };
-
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState(false);
   const [submitErrorMessage, setSubmitErrorMessage] = useState('');
@@ -83,7 +43,7 @@ function App() {
 const handleSubmit = async (event) => {
   event.preventDefault();
 
-  let errors = validateForm();
+  let errors = validateForm(reservation);
 
   // building the request object which POST the form data to the Booking service
   const req={
